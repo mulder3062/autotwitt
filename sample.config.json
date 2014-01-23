@@ -1,0 +1,25 @@
+{
+	"allowTime": {"start":8, "end":0},	
+	"interval": 10000,
+	"infos":
+	[
+		{
+			"wordFile": "word.txt",
+			"oauth": {
+				"consumer_key": "4Vr7ehCpFXhO1Q2CbPWQ",
+				"consumer_secret": "8k1oGKDRDHzfld601ms4zFc4T1OabFsKoWomA9oEUkU",
+				"access_token": "62215924-CTv9WNfSeYid8xcO49wFxdkHJK7XGeKadEZmOHQoX",
+				"access_token_secret": "orebUZPoaQSZoHTVG6W1Pli23MT0LJICtv4INQeAg9eik"
+			}
+		},
+		{
+			"wordFile": "word.txt",
+			"oauth": {
+				"consumer_key": "3ad2312b1a123ddfdf12",
+				"consumer_secret": "13123123kj123lkj123lkj123lkj123lkj123ljk12",
+				"access_token": "12345678-abcdd12312312312312312312312312312312331",
+				"access_token_secret": "123k123k123l1k23lk12j3lkj123lkj123lkj123lkjk"
+			}
+		}
+	]
+}
