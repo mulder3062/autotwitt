@@ -16,6 +16,7 @@ https://dev.twitter.com
 
 5. twit 모듈 설치
 Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 실행합니다.
-# npm install twit
+
+  npm install twit
 
 
