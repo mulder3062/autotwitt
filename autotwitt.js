@@ -118,18 +118,19 @@ function AutoTwitt(info) {
 			this.twitt();
 			var interval = 30000; // default 30 sec
 			var unit;
-			var parser = /^(\d+)([smhd|SMHD])$/;
+			var parser = /^(\d+)([smhd|SMHD]{0,1})$/;
 			var match = parser.exec(this.interval);
 			if (match) {
 				interval = Number(match[1]);
 				unit = match[2].toLowerCase();
-
-				switch(unit) {
-				case 's' : interval = interval * 1000; break;
-				case 'm' : interval = interval * 1000 * 60; break;
-				case 'h' : interval = interval * 1000 * 60 * 60; break;
-				case 'd' : interval = interval * 1000 * 60 * 60 * 24; break;
-				default:
+				if (unit.length > 0) {
+					switch(unit) {
+						case 's' : interval = interval * 1000; break;
+						case 'm' : interval = interval * 1000 * 60; break;
+						case 'h' : interval = interval * 1000 * 60 * 60; break;
+						case 'd' : interval = interval * 1000 * 60 * 60 * 24; break;
+						default:
+					}
 				}
 			}
 					

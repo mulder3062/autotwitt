@@ -67,7 +67,7 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 [설명(Description)]
 	- allowTime.start : 자동 트윗 시작시간
 	- allowTime.end : 자동 트윗 종료시간
-	- interval: 60s, 10m, 2h, 5d와 같이 지정합니다. (s:초, m:분, h:시, d:일)
+	- interval: 30000, 60s, 10m, 2h, 5d와 같이 지정합니다. (생략:밀리초, s:초, m:분, h:시, d:일)
 	- infos : 자동 트윗에 필요한 텍스트 파일과 Twitter oauth 정보 Array
 	- infos[0] : 첫번째 정보 
 	- infos[0].allowTime : allowTime은 전역으로 적용되고, infos[n].allowTime 지역으로 적용
