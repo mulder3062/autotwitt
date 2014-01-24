@@ -90,7 +90,7 @@ function AutoTwitt(info) {
 		console.error(err);
 	};
 
-	this.tweet = function() {
+	this.twitt = function() {
 		// 허용하는 시간 범위가 아니면 트윗하지 않는다.
 		var d = new Date();
 		var allowTime = this.info.allowTime || globalAllowTime;
@@ -114,8 +114,8 @@ function AutoTwitt(info) {
 
 		if (this.wordsList.length > 0) {
 			// 최초 바로 실행
-			this.tweet();
-			setInterval(this.tweet, this.info.interval || globalInterval);
+			this.twitt();
+			setInterval(this.twitt, this.info.interval || globalInterval);
 		}
 	};
 
