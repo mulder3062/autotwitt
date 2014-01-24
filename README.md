@@ -24,7 +24,7 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 
 {
 	"allowTime": {"start":8, "end":0},	
-	"interval": 10000,
+	"interval": "2h",
 	"infos":
 	[
 		{
@@ -51,9 +51,11 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 [설명(Description)]
 	- allowTime.start : 자동 트윗 시작시간
 	- allowTime.end : 자동 트윗 종료시간
+	- interval: 60s, 10m, 2h, 5d와 같이 지정합니다. (s:초, m:분, h:시, d:일)
 	- infos : 자동 트윗에 필요한 텍스트 파일과 Twitter oauth 정보 Array
 	- infos[0] : 첫번째 정보 
 	- infos[0].allowTime : allowTime은 전역으로 적용되고, infos[n].allowTime 지역으로 적용
+	- infos[0].interval : 위 interval과 동일하지만 이것이 설정되면 위 interval은 무시됩니다. 즉, 지역이 전역보다 우선합니다.
 		즉, 지역 allowTime이 있으면 이게 먼저 적용됨
 	- infos[0].oauth : 첫번째 Twitter oauth 정보
 
