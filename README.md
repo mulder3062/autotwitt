@@ -11,6 +11,17 @@ http://www.twitter.com
 
 #3. Twitter API 등록
 https://dev.twitter.com
+	- My applicatios 클릭
+	- Create a new application 버튼 클릭
+		- Name, Description, WebSite에 적당한 값을 입력한 후 생성해줍니다.
+	- Detais 페이지 하단의 Create my access token 버튼 클릭
+		생성되면 Your access token에 Access token, Access token secret, Access level이 표시됩니다.
+	- Access level을 Read and Write로 변경
+		Settings 페이지에서 Application Type을 Read only에서 Read and Write로 변경해줍니다.
+		그래야 자동으로 트윗할 수 있습니다.
+		(참고: Allow this application to be used to Sign in with Twitter 체크해야 변경됨)
+
+		
 
 #4. Access token 생성
 
@@ -30,6 +41,8 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 		{
 			"wordFile": "word.txt",
 			"oauth": {
+				"id": "twitter.userid",
+				"email": "email",
 				"consumer_key": "4Vr7ehCpFXhO1Q2CbPWQ",
 				"consumer_secret": "8k1oGKDRDHzfld601ms4zFc4T1OabFsKoWomA9oEUkU",
 				"access_token": "62215924-CTv9WNfSeYid8xcO49wFxdkHJK7XGeKadEZmOHQoX",
@@ -39,6 +52,8 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 		{
 			"wordFile": "word.txt",
 			"oauth": {
+				"id": "twitter.userid",
+				"email": "email",
 				"consumer_key": "3ad2312b1a123ddfdf12",
 				"consumer_secret": "13123123kj123lkj123lkj123lkj123lkj123ljk12",
 				"access_token": "12345678-abcdd12312312312312312312312312312312331",
@@ -58,6 +73,7 @@ Command line에서 npm(Node Package Manager)을 이용하여 아래 명령을 �
 	- infos[0].interval : 위 interval과 동일하지만 이것이 설정되면 위 interval은 무시됩니다. 즉, 지역이 전역보다 우선합니다.
 		즉, 지역 allowTime이 있으면 이게 먼저 적용됨
 	- infos[0].oauth : 첫번째 Twitter oauth 정보
+	- ..oauth.id, email: 실제 사용되지 않으며 참고용
 
 #7. word.txt 작성
 config.json에 word.txt를 빈줄로 구분하여 작성한다.
