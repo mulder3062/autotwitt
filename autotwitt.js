@@ -117,13 +117,11 @@ function AutoTwitt(info) {
 		var words = this.getWords();
 		console.log('>> ' + words);
 
-/*
 		this.T.post('statuses/update', {status: words },
 			function(err, replay) {
 				if(err) return this.handleError(err);
 				console.log('{0} posting'.format(getTimestampString(new Date())));
 			}.bind(this));
-*/
 	}.bind(this);
 
 
