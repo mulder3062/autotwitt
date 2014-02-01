@@ -39,6 +39,17 @@ var Twit = require('twit');
 var globalAllowTime = config.allowTime;
 var globalInterval = config.interval;
 
+function getTimestampString(date) {
+	return (date) ? '{0}-{1}-{2} {3}:{4}:{5}.{6}'.format(
+					date.getFullYear(), 
+					date.getMonth()+1, 
+					date.getDate(), 
+					date.getHours(),
+					date.getMinutes(),
+					date.getSeconds(),
+					date.getMilliseconds()) : '';
+}
+
 function AutoTwitt(info) {
 	this.info = info;
 	this.wordsList = [];
@@ -46,7 +57,7 @@ function AutoTwitt(info) {
 	this.interval = this.info.interval || globalInterval;
 
 	this.init = function() {
-		console.dir(this.info);
+		//console.dir(this.info);
 		if (!this.info.wordFile || !this.info.oauth) return;
 
 		this.T = new Twit({
@@ -79,7 +90,10 @@ function AutoTwitt(info) {
 	};
 
 	this.getWords = function() {
-		if (this.copyWordsList.length == 0) this.copyWordsList = this.wordsList;
+		if (this.copyWordsList.length == 0) {
+			console.log('word reset!!!');
+			this.copyWordsList = this.wordsList.slice(0);
+		}
 	
 		var rnd = Math.floor((Math.random() * this.copyWordsList.length));
 		var val = this.copyWordsList[rnd];
@@ -95,16 +109,21 @@ function AutoTwitt(info) {
 		// 허용하는 시간 범위가 아니면 트윗하지 않는다.
 		var d = new Date();
 		var allowTime = this.info.allowTime || globalAllowTime;
-		if (d.getHours() >= allowTime.start && d.getHours() <= allowTime.end) return;
+		if (d.getHours() <= allowTime.start && d.getHours() >= allowTime.end) {
+			console.log('{0} skip'.format(getTimestampString(new Date())));
+			return;
+		}
 
 		var words = this.getWords();
-		console.log('words: ' + words);
+		console.log('>> ' + words);
 
+/*
 		this.T.post('statuses/update', {status: words },
 			function(err, replay) {
 				if(err) return this.handleError(err);
-				console.log('posted');
+				console.log('{0} posting'.format(getTimestampString(new Date())));
 			}.bind(this));
+*/
 	}.bind(this);
 
 
@@ -137,8 +156,6 @@ function AutoTwitt(info) {
 			setInterval(this.twitt, interval);
 		}
 	};
-
-	this.init();
 }
 
 for (var i in config.infos) {
